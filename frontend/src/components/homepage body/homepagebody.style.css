@@ -1,0 +1,174 @@
+.section-one {
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 5%;
+  overflow-x: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 40px;
+}
+.section-one img {
+  height: 25vh;
+  width: 80%;
+}
+.section-one h3 {
+  font-weight: bold;
+  font-size: 2vw;
+  text-align: center;
+  margin-top: 10%;
+}
+.section-two {
+  margin-top: 10%;
+  margin-bottom: 5%;
+}
+.section-two h2 {
+  text-align: center;
+  font-size: 3vw;
+  margin-bottom: 5%;
+}
+.section-two p {
+  margin-left: 10%;
+  margin-right: 10%;
+  text-align: center;
+  font-size: 2vw;
+}
+
+.section-three img {
+  height: auto;
+  margin-left: 3%;
+
+  width: 50%;
+}
+.section-three {
+  margin-left: 10%;
+  margin-right: 10%;
+  display: flex;
+  justify-content: space-around;
+  padding-top: 10%;
+  padding-bottom: 10%;
+}
+.sos {
+  background: lightgrey;
+}
+.section-three p {
+  font-size: 1.3vw;
+  line-height: 1.7;
+}
+
+.section-five h2 {
+  font-size: 3vw;
+  text-align: center;
+  margin-top: 10%;
+}
+.section-five p {
+  font-size: 1.5vw;
+  text-align: center;
+  margin-top: 2%;
+}
+.section-five {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+.section-six {
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 7%;
+  overflow-x: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 40px;
+  text-align: center;
+}
+.section-six img {
+  height: 8vh;
+}
+.section-six h3 {
+  font-weight: bold;
+  font-size: 1vw;
+  text-align: center;
+  margin-top: 10%;
+}
+.section-six p {
+  font-size: 1.5vw;
+}
+@media screen and (max-width: 500px) {
+  .section-one {
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 10%;
+    overflow-x: hidden;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 20px;
+  }
+
+  .section-one img {
+    height: 8vh;
+  }
+  .section-two h2 {
+    text-align: center;
+    font-size: 4vw;
+  }
+  .section-two p {
+    margin-left: 5%;
+    margin-right: 5%;
+    text-align: center;
+    font-size: 3vw;
+    line-height: 1.5;
+  }
+
+  .section-three img {
+    height: 12vh;
+    margin-left: 3%;
+  }
+  .section-three {
+    margin-left: 5%;
+    margin-right: 5%;
+    display: flex;
+    justify-content: space-around;
+    padding-top: 10%;
+  }
+
+  .section-three p {
+    font-size: 1.5vw;
+    line-height: 1.7;
+  }
+  .section-four {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 3%;
+
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+
+  .section-five p {
+    font-size: 10px;
+  }
+  .section-five {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  .section-six {
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 7%;
+    overflow-x: hidden;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 40px;
+    text-align: center;
+  }
+  .section-six img {
+    height: 7vh;
+  }
+  .section-six h3 {
+    font-weight: bold;
+    font-size: 1vw;
+    text-align: center;
+    margin-top: 10%;
+  }
+  .section-six p {
+    font-size: 1.5vw;
+  }
+}
