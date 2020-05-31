@@ -1,0 +1,3 @@
+[submodule "global-asset-backend"]
+	path = global-asset-backend
+	url = https://github.com/ibk-code/global-asset-backend.git
