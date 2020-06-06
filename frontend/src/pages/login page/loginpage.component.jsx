@@ -1,6 +1,7 @@
 import React from 'react';
 import API from '../../components/api/api'
 import axios from 'axios';
+import queryString from 'query-string';
 import './loginpage.style.css';
 import { Link } from 'react-router-dom';
 
@@ -12,12 +13,25 @@ class LogIn extends React.Component {
             email: " ",
             password: "",
             btcId: " ",
-            plan: "Day Plan",
+            plan: "A day plan",
+            referralId: " ",
+        }
+    }
+
+    getrefIdparam = () => {
+
+        let url = this.props.location.search;
+        const params = queryString.parse(url);
+        const {referralId} = params
+        if (referralId) {
+            this.setState({referralId: referralId})
+            console.log(referralId)
         }
     }
 
     handleSignUp = async (e) => {
         e.preventDefault();
+        this.getrefIdparam();
 
         const url = `http://localhost:5000/api/auth/signup`
 
@@ -29,10 +43,11 @@ class LogIn extends React.Component {
                 email: this.state.email,
                 password: this.state.password,
                 plan: this.state.plan,
-                btcId: this.state.btcId
+                btcId: this.state.btcId,
+                referralId: this.state.referralId
             }
         }).then(res => {
-            console.log(res.data.message);
+            console.log(res);
         }).catch(() => {
             throw new Error("An error occured")
         })
@@ -61,8 +76,8 @@ class LogIn extends React.Component {
                     <label>Select Plan</label>
                     <select name="plan" required className="input" onChange={e => {
                         this.setState({plan: e.target.value})}} value={this.state.plan}>
-                        <option value="Day plan">Day Plan</option>
-                        <option value="3 Days plan">3 Days Plan</option>
+                        <option value="A day plan">A day plan</option>
+                        <option value="3 days plan">3 days plan</option>
                         <option value="Trader plan">Trader plan</option>
                         <option value="Gold plan">Gold plan</option>
                     </select>
