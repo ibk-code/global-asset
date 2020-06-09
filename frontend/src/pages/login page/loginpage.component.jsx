@@ -78,7 +78,7 @@ class LogIn extends React.Component {
               this.setState({ password: e.target.value });
             }}
           />
-          <label>Btc Id</label>
+          <label> Wallet Adress </label>
           <input
             type="text"
             name="btcid"
@@ -107,7 +107,7 @@ class LogIn extends React.Component {
           <p>
             Already have an account ?<Link to="/Signup"> Log In </Link>
           </p>
-          <button type="submit">Login </button>
+          <button type="submit">Sign Up </button>
         </form>
       </div>
     );

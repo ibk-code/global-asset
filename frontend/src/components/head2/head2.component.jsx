@@ -9,9 +9,9 @@ function Head2({ children }) {
     <div className="hero">
       <div className="navigation">
         <div className="logo">
-          <p>
+          <h2>
             <Link to="/">Global Asset</Link>
-          </p>
+          </h2>
         </div>
 
         <ul className="navigation-links">

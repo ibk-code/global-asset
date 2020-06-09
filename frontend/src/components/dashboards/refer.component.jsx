@@ -16,7 +16,7 @@ function Refer() {
             name="text"
             type="text"
             id="refer-text"
-            value="https://global-asset.com/blabla"
+            value="http://localhost:3000/login?4577iuklg"
           />
           <button className="copy" onClick={copy}>
             {" "}

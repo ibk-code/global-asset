@@ -12,6 +12,7 @@ import Referal from "./pages/dashboards/referal";
 import Deposit from "./pages/dashboards/deposit";
 import Withdraw from "./pages/dashboards/withdraw";
 import Info from "./pages/dashboards/info";
+import Forgot from "./pages/signupp/forgot";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
         <Route path="/withdraw" component={Withdraw} />
         <Route path="/admin" component={Admin} />
         <Route path="/info" component={Info} />
+        <Route path="/forgot" component={Forgot} />
       </Switch>
     </div>
   );

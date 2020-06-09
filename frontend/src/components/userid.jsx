@@ -39,8 +39,7 @@ function UserId() {
           </Link>
         </p>
         <p>
-          <Link to="/admin">
-            {" "}
+          <Link to="/info">
             <FaUserEdit className="icono" /> info
           </Link>
         </p>
