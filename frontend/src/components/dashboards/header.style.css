@@ -10,6 +10,11 @@
   color: white;
   font-size: 2vw;
   margin-left: 10%;
+  font-weight: 600;
+}
+.logo a {
+  color: white;
+  text-decoration: none;
 }
 .logout {
   color: white;

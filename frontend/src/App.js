@@ -14,6 +14,7 @@ import Withdraw from "./pages/dashboards/withdraw";
 import Info from "./pages/dashboards/info";
 import {GlobalContenxtProvider} from "./GlobalContextClass"
 import history from './history'
+import Forgot from "./pages/signupp/forgot";
 
 function App() {
   return (
@@ -25,7 +26,7 @@ function App() {
               <Route exact path="/" component={HomePage} />
               <Route path="/about" component={AboutPage} />
               <Route path="/contact" component={ContactUs} />
-              <Route path="/Login" component={LogIn}/>
+              <Route path="/Login" component={LogIn} />
               <Route path="/Signup" component={Signup} />
               <Route path="/admin" component={Admin} />
               <Route path="/user" component={User} />
@@ -35,6 +36,7 @@ function App() {
               <Route path="/withdraw" component={Withdraw} />
               <Route path="/admin" component={Admin} />
               <Route path="/info" component={Info} />
+              <Route path="/forgot" component={Forgot} />
             </Switch>
           </div>
         </Router>

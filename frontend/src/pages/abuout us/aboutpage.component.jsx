@@ -41,10 +41,10 @@ function AboutPage() {
               analysis to help you with all of your trading strategies.
             </p>
           </div>
-          <div className="image-section">
-            <img src="/images/semiiiii.jpg"></img>
+          <div className="image-section" alt="">
+            <img src="/images/semiiiii.jpg" alt=""></img>
             <h2>Certification</h2>
-            <img className="img2" src="/images/certificate.jpeg"></img>
+            <img className="img2" src="/images/certificate.jpeg" alt=""></img>
           </div>
         </div>
       </div>

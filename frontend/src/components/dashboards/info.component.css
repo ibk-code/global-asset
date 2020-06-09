@@ -1,0 +1,9 @@
+.userinfo {
+  margin-top: 5%;
+  margin-left: 5%;
+  line-height: 3;
+}
+.userinfo p {
+  font-size: 1.5vw;
+  font-weight: bold;
+}

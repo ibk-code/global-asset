@@ -2,11 +2,6 @@ import React from "react";
 
 import "./footer.style.css";
 
-import { FaFacebookF } from "react-icons/fa";
-import { FaWhatsapp } from "react-icons/fa";
-import { FaTwitter } from "react-icons/fa";
-import { MdEmail } from "react-icons/md";
-import { Link } from "react-router-dom";
 function Footer() {
   return (
     <div className="footer">
@@ -26,21 +21,7 @@ function Footer() {
         <div className="final2">
           <h3>GLOBAL ASSET </h3>
           <p>Copyright Global-asset 2020 </p>
-          <div className="icons2">
-            <Link>
-              <FaTwitter />
-            </Link>
-            <Link>
-              <FaFacebookF />
-            </Link>
-            <Link>
-              <FaWhatsapp />
-            </Link>
-            <Link>
-              {" "}
-              <MdEmail />
-            </Link>
-          </div>
+          <div></div>
         </div>
       </div>
     </div>

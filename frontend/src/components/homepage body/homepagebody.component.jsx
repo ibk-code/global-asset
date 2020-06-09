@@ -8,19 +8,19 @@ function HomepageBody() {
     <div className="homepage-body">
       <div className="section-one">
         <div className="mini-section">
-          <img src="/images/undraw_wallet_aym5.svg"></img>
+          <img src="/images/undraw_wallet_aym5.svg" alt=""></img>
           <h3>INSTANT WITHDRAWAL</h3>
         </div>
         <div className="mini-section">
-          <img src="/images/undraw_digital_currency_qpak.svg"></img>
+          <img src="/images/undraw_digital_currency_qpak.svg" alt=""></img>
           <h3> NO FEES </h3>
         </div>
         <div className="mini-section">
-          <img src="/images/undraw_savings_dwkw.svg"></img>
+          <img src="/images/undraw_savings_dwkw.svg" alt=""></img>
           <h3>AUTOMATED DEPOSITS</h3>
         </div>
         <div className="mini-section">
-          <img src="/images/undraw_stand_out_1oag.svg"></img>
+          <img src="/images/undraw_stand_out_1oag.svg" alt=""></img>
           <h3>EXPERT TRADERS</h3>
         </div>
       </div>
@@ -44,11 +44,10 @@ function HomepageBody() {
             dollars per day However, currency exchange trading is a complicated
             system with plenty of different nuances which often interfere with
             earning even experienced traders.
-            <p className="about-link">
-              <Link to="/about"> ABOUT US </Link>
-            </p>
+            <Link to="/about"> More About us </Link>
           </p>
-          <img src="/images/semiiiii.jpg"></img>
+
+          <img src="/images/semiiiii.jpg" alt=""></img>
         </div>
       </div>
 
@@ -61,7 +60,7 @@ function HomepageBody() {
 
       <div className="section-six">
         <div className="mini">
-          <img src="/images/return.svg"></img>
+          <img src="/images/return.svg" alt=""></img>
           <h3>INSTANT EFFECT</h3>
           <p>
             All operations within our system, including financial transactions
@@ -69,7 +68,7 @@ function HomepageBody() {
           </p>
         </div>
         <div className="mini">
-          <img src="/images/money.svg"></img>
+          <img src="/images/money.svg" alt=""></img>
           <h3> 100% Profit Guarantee </h3>
           <p>
             With our expertise we guarantee you the best profits in the market.
@@ -78,7 +77,7 @@ function HomepageBody() {
           </p>
         </div>
         <div className="mini">
-          <img src="/images/cctv.svg"></img>
+          <img src="/images/cctv.svg" alt=""></img>
           <h3>Easy & Convinient</h3>
           <p>
             You invest your money, and we take care of the rest, providing you
@@ -86,7 +85,7 @@ function HomepageBody() {
           </p>
         </div>
         <div className="mini">
-          <img src="/images/list.svg"></img>
+          <img src="/images/list.svg" alt=""></img>
           <h3>Technology For Your Benefit</h3>
           <p>
             We provide investors with a unique array of features running on a
