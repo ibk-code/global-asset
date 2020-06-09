@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Switch, Router} from "react-router-dom";
+import { Route, Switch, Router } from "react-router-dom";
 import HomePage from "./pages/homepage/homepage.component";
 import AboutPage from "./pages/abuout us/aboutpage.component";
 import ContactUs from "./pages/contact us/contactus.component";
@@ -12,8 +12,8 @@ import Referal from "./pages/dashboards/referal";
 import Deposit from "./pages/dashboards/deposit";
 import Withdraw from "./pages/dashboards/withdraw";
 import Info from "./pages/dashboards/info";
-import {GlobalContenxtProvider} from "./GlobalContextClass"
-import history from './history'
+import { GlobalContenxtProvider } from "./GlobalContextClass";
+import history from "./history";
 import Forgot from "./pages/signupp/forgot";
 
 function App() {

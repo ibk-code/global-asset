@@ -5,7 +5,7 @@ import queryString from "query-string";
 import "./loginpage.style.css";
 import { GlobalContext } from "../../GlobalContextClass";
 import { Link, Redirect } from "react-router-dom";
-import history from '../../history'
+import history from "../../history";
 
 class LogIn extends React.Component {
   constructor(props) {
@@ -14,10 +14,10 @@ class LogIn extends React.Component {
 
   redirectPage = (redirect) => {
     if (redirect === true) {
-      console.log("redirect")
-      this.props.history.push('/user/')
+      console.log("redirect");
+      this.props.history.push("/user/");
     }
-  }
+  };
 
   render() {
     return (
@@ -26,9 +26,8 @@ class LogIn extends React.Component {
           // context.loggedIn ?  history.push('/user') :
           <React.Fragment>
             <div className="input-fields">
-              <form id="login" onSubmit={context.handleSignUp
-              }>
-                <h2>Login</h2>
+              <form id="login" onSubmit={context.handleSignUp}>
+                <h2>Sign Up</h2>
                 <label>Username </label>
                 <input
                   type="text"
@@ -81,7 +80,7 @@ class LogIn extends React.Component {
                 <p>
                   Dont have an account ?<Link to="/Signup"> Sign Up </Link>
                 </p>
-                <button type="submit">Login </button>
+                <button type="submit">Sign Up </button>
               </form>
             </div>
           </React.Fragment>
