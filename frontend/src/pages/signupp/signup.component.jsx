@@ -1,59 +1,47 @@
-import React from 'react';
+import React from "react";
 
-import './signup.style.css';
-import { Link } from 'react-router-dom';
-import axios from 'axios';
+import "./signup.style.css";
+import { Link } from "react-router-dom";
+import { GlobalContext } from "../../GlobalContextClass";
 
 class Signup extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-            email: " ",
-            password: " "
-        }
-    }
-
-    handleLogin = async (e) => {
-        e.preventDefault();
-
-        const url = `http://localhost:5000/api/auth/login`
-
-        axios({
-            method: 'post',
-            url: url,
-            data:{
-                email: this.state.email,
-                password: this.state.password
-            }
-        }).then(res => {
-            console.log(res.data);
-        }).catch((error) => {
-            console.log(error)
-        })
-    }
-
-    render() {
-        return (
-
+  render() {
+    return (
+      <GlobalContext.Consumer>
+        {(context) => (
+          <React.Fragment>
             <div className="input-fields">
-                <form id='login' onSubmit={this.handleLogin}>
-                    <h2>Sign Up </h2>
+              <form id="login" onSubmit={context.login}>
+                <h2>Sign In </h2>
 
-                    <label>Email </label>
-                    <input type='email' name='email' className='input' placeholder='email' required onChange={ e => {
-                        this.setState({email: e.target.value})
-                    }}/>
-                    <label>Password </label>
-                    <input type='password' name='password' className='input' placeholder='password' required onChange={ e => {
-                        this.setState({password: e.target.value})
-                    }}/>
-                    <p>Already Have an Account ?<Link to='/Login'> Login </Link></p>
-                    <button type='submit' >Sign Up </button>
-
-                </form>
+                <label>Email </label>
+                <input
+                  type="email"
+                  name="email"
+                  className="input"
+                  placeholder="email"
+                  required
+                  onChange={context.updateEmail}
+                />
+                <label>Password </label>
+                <input
+                  type="password"
+                  name="password"
+                  className="input"
+                  placeholder="password"
+                  required
+                  onChange={context.updatePassword}
+                />
+                <p>
+                  Dont Have an Account ?<Link to="/Login"> Sign Up </Link>
+                </p>
+                <button type="submit">Sign In </button>
+              </form>
             </div>
-
-        )
-    }
+          </React.Fragment>
+        )}
+      </GlobalContext.Consumer>
+    );
+  }
 }
 export default Signup;

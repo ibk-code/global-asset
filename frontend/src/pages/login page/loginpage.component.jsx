@@ -1,92 +1,93 @@
-import React from 'react';
-import API from '../../components/api/api'
-import axios from 'axios';
-import queryString from 'query-string';
-import './loginpage.style.css';
-import { Link } from 'react-router-dom';
+import React from "react";
+import API from "../../components/api/api";
+import axios from "axios";
+import queryString from "query-string";
+import "./loginpage.style.css";
+import { GlobalContext } from "../../GlobalContextClass";
+import { Link, Redirect } from "react-router-dom";
+import history from '../../history'
 
 class LogIn extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            name:" ",
-            email: " ",
-            password: "",
-            btcId: " ",
-            plan: "A day plan",
-            referralId: " ",
-        }
+  constructor(props) {
+    super(props);
+  }
+
+  redirectPage = (redirect) => {
+    if (redirect === true) {
+      console.log("redirect")
+      this.props.history.push('/user/')
     }
+  }
 
-    getrefIdparam = () => {
-
-        let url = this.props.location.search;
-        const params = queryString.parse(url);
-        const {referralId} = params
-        if (referralId) {
-            this.setState({referralId: referralId})
-            console.log(referralId)
-        }
-    }
-
-    handleSignUp = async (e) => {
-        e.preventDefault();
-        this.getrefIdparam();
-
-        const url = `http://localhost:5000/api/auth/signup`
-
-        axios({
-            method: 'post',
-            url: url,
-            data:{
-                name: this.state.name,
-                email: this.state.email,
-                password: this.state.password,
-                plan: this.state.plan,
-                btcId: this.state.btcId,
-                referralId: this.state.referralId
-            }
-        }).then(res => {
-            console.log(res);
-        }).catch(() => {
-            throw new Error("An error occured")
-        })
-    }
-
-
-    render() {
-        return (
-
+  render() {
+    return (
+      <GlobalContext.Consumer>
+        {(context) => (
+          // context.loggedIn ?  history.push('/user') :
+          <React.Fragment>
             <div className="input-fields">
-                <form id='login' onSubmit={this.handleSignUp}>
-                    <h2>Login</h2>
-                    <label>Username </label>
-                    <input type='text' name='name' className='input' placeholder='Userame' required onChange={e => {
-                        this.setState({name: e.target.value})}} />
-                    <label>Email </label>
-                    <input type='email' name='email' className='input' placeholder='email' required onChange={e => {
-                        this.setState({email: e.target.value})
-                    }} />
-                    <label>Password </label>
-                    <input type='password' name='password' className='input' placeholder='password' required onChange={e => {
-                        this.setState({password: e.target.value})}} />
-                    <label>Btc Id</label>
-                    <input type='text' name='btcid' className='input' placeholder='btc id' required onChange={e => {
-                        this.setState({btcId: e.target.value})}} />
-                    <label>Select Plan</label>
-                    <select name="plan" required className="input" onChange={e => {
-                        this.setState({plan: e.target.value})}} value={this.state.plan}>
-                        <option value="A day plan">A day plan</option>
-                        <option value="3 days plan">3 days plan</option>
-                        <option value="Trader plan">Trader plan</option>
-                        <option value="Gold plan">Gold plan</option>
-                    </select>
-                    <p>Dont have an account ?<Link to='/Signup'> Sign Up </Link></p>
-                    <button type='submit' >Login </button>
-                </form>
+              <form id="login" onSubmit={context.handleSignUp
+              }>
+                <h2>Login</h2>
+                <label>Username </label>
+                <input
+                  type="text"
+                  name="name"
+                  className="input"
+                  placeholder="Userame"
+                  required
+                  onChange={context.updateName}
+                />
+                <label>Email </label>
+                <input
+                  type="email"
+                  name="email"
+                  className="input"
+                  placeholder="email"
+                  required
+                  onChange={context.updateEmail}
+                />
+                <label>Password </label>
+                <input
+                  type="password"
+                  name="password"
+                  className="input"
+                  placeholder="password"
+                  required
+                  onChange={context.updatePassword}
+                />
+                <label>Btc Id</label>
+                <input
+                  type="text"
+                  name="btcid"
+                  className="input"
+                  placeholder="btc id"
+                  required
+                  onChange={context.updateWalletAddress}
+                />
+                <label>Select Plan</label>
+                <select
+                  name="plan"
+                  required
+                  className="input"
+                  onChange={context.updatePlan}
+                  value={context.state.plan}
+                >
+                  <option value="A day plan">A day plan</option>
+                  <option value="3 days plan">3 days plan</option>
+                  <option value="Trader plan">Trader plan</option>
+                  <option value="Gold plan">Gold plan</option>
+                </select>
+                <p>
+                  Dont have an account ?<Link to="/Signup"> Sign Up </Link>
+                </p>
+                <button type="submit">Login </button>
+              </form>
             </div>
-
-        )
-    }
+          </React.Fragment>
+        )}
+      </GlobalContext.Consumer>
+    );
+  }
 }
 export default LogIn;

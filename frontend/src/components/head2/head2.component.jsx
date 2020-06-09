@@ -28,7 +28,7 @@ function Head2({ children }) {
 
         <div className="user">
           <li>
-            <Link to="/Login">Sign In </Link>
+            <Link to="/Signup">Sign In </Link>
           </li>
           <li>
             <Link to="/Login"> Sign Up </Link>
