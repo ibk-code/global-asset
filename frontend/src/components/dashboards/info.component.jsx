@@ -1,23 +1,29 @@
 import React from "react";
-
+import {GlobalContext} from '../../GlobalContextClass';
 import "./info.component.css";
 
 function UserInfo() {
   return (
-    <div className="userinfo">
-      <p>
-        Name : <span>juce</span>
-      </p>
-      <p>
-        Email : <span>mark@gmail.com</span>
-      </p>
-      <p>
-        wallet Adress: <span>hjfgksjhsfdg</span>
-      </p>
-      <p>
-        Referal Count: <span>90</span>{" "}
-      </p>
-    </div>
+    <GlobalContext.Consumer>
+      {(context) => (
+        <React.Fragment>
+           <div className="userinfo">
+              <p>
+                Name : <span>{context.state.name}</span>
+              </p>
+              <p>
+                Email : <span>{context.state.email}</span>
+              </p>
+              <p>
+                wallet Adress: <span>{context.state.walletAddress}</span>
+              </p>
+              <p>
+                Referal Count: <span>{context.state.totalReferrals}</span>{" "}
+              </p>
+            </div>
+        </React.Fragment>
+      )}
+    </GlobalContext.Consumer>
   );
 }
 

@@ -5,6 +5,10 @@ import { Link } from "react-router-dom";
 import { GlobalContext } from "../../GlobalContextClass";
 
 class Signup extends React.Component {
+  constructor(props){
+    super(props)
+  }
+
   render() {
     return (
       <GlobalContext.Consumer>
@@ -32,8 +36,9 @@ class Signup extends React.Component {
                   required
                   onChange={context.updatePassword}
                 />
+                <p style={{color: "red", textAlign: "center"}}>{context.state.status && context.state.statusMessage}</p>
                 <p>
-                  Dont Have an Account ?<Link to="/Login"> Sign Up </Link>
+                  Don't Have an Account ?<Link to="/Signup"> Sign Up </Link>
                 </p>
                 <p className="forgot">
                   <Link to="/forgot"> Forgot Password </Link>
