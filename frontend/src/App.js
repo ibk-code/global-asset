@@ -26,15 +26,14 @@ function App() {
               <Route exact path="/" component={HomePage} />
               <Route path="/about" component={AboutPage} />
               <Route path="/contact" component={ContactUs} />
-              <Route path="/Login" component={LogIn} />
-              <Route path="/Signup" component={Signup} />
+              <Route path="/Login" component={Signup} />
+              <Route path="/Signup" component={LogIn} />
               <Route path="/admin" component={Admin} />
               <Route path="/user" component={User} />
               <Route path="/dashboard" component={Dash} />
               <Route path="/referal" component={Referal} />
               <Route path="/deposit" component={Deposit} />
               <Route path="/withdraw" component={Withdraw} />
-              <Route path="/admin" component={Admin} />
               <Route path="/info" component={Info} />
               <Route path="/forgot" component={Forgot} />
             </Switch>

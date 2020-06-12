@@ -12,13 +12,6 @@ class LogIn extends React.Component {
     super(props);
   }
 
-  redirectPage = (redirect) => {
-    if (redirect === true) {
-      console.log("redirect");
-      this.props.history.push("/user/");
-    }
-  };
-
   render() {
     return (
       <GlobalContext.Consumer>
@@ -77,10 +70,11 @@ class LogIn extends React.Component {
                   <option value="Trader plan">Trader plan</option>
                   <option value="Gold plan">Gold plan</option>
                 </select>
+                <p style={{color: "red", textAlign: "center"}}>{context.state.status && context.state.statusMessage}</p>
                 <p>
-                  Dont have an account ?<Link to="/Signup"> Sign Up </Link>
+                  Alredy have an account ?<Link to="/Login"> Sign In </Link>
                 </p>
-                <button type="submit">Sign Up </button>
+                <button type="submit">Login</button>
               </form>
             </div>
           </React.Fragment>

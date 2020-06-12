@@ -12,8 +12,8 @@ class User extends React.Component {
     return (
       <GlobalContext.Consumer>
         {(context) => (
-          // !context.loggedIn ?
-          // history.push('/Login') :
+          !context.state.loggedIn ?
+          history.push('/Login') :
           <React.Fragment>
             <div>
               <Header />
