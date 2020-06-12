@@ -43,6 +43,7 @@ class Signup extends React.Component {
                 <p className="forgot">
                   <Link to="/forgot"> Forgot Password </Link>
                 </p>
+                <div className="error"></div>
                 <button type="submit">Sign In </button>
               </form>
             </div>

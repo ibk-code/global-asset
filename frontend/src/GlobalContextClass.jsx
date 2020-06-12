@@ -1,13 +1,14 @@
-import React from 'react';
-import queryString from 'query-string';
-import axios from 'axios';
-import history from './history';
+import React from "react";
+import queryString from "query-string";
+import axios from "axios";
+import history from "./history";
 
 const GlobalContext = React.createContext();
 
 class GlobalContenxtProvider extends React.Component {
+
     constructor(props, context) {
-        super(props,);
+        super(props);
         this.state = {
             name: "",
             email: "",
@@ -30,7 +31,7 @@ class GlobalContenxtProvider extends React.Component {
     componentDidMount() {
         const path = window.location.pathname
         const loginSession = window.sessionStorage.getItem("loggedIn")
-        if (path === '/' || window.location.href.indexOf("referralId") > -1 || '/about' || '/contact') {
+        if (path === '/' || window.location.href.indexOf("referralId") > -1 || '/about' || '/contact' || "/admin") {
             window.sessionStorage.setItem("loggedIn", false);
             window.sessionStorage.removeItem("userToken");
             return
@@ -78,6 +79,7 @@ class GlobalContenxtProvider extends React.Component {
             window.sessionStorage.removeItem("userToken");
         }
     }
+  }
 
     componentDidUpdate(prevProps, prevState) {
         const path = window.location.pathname
@@ -109,31 +111,30 @@ class GlobalContenxtProvider extends React.Component {
         //     } 
         // }
 
-        // if (path === '/Signup') {
-        //     console.log('Hello2');
-        //     return
-        // }
+    // if (path === '/Signup') {
+    //     console.log('Hello2');
+    //     return
+    // }
 
-        // if (path === '/user' || '/withdraw') {
-        //     if (!this.state.loggedIn) {
-        //     console.log('Hello3');
-        //        history.push('/Login') 
-        //     }
-        // }
-        // if (path === '/Login') {
-        // }
+    // if (path === '/user' || '/withdraw') {
+    //     if (!this.state.loggedIn) {
+    //     console.log('Hello3');
+    //        history.push('/Login')
+    //     }
+    // }
+    // if (path === '/Login') {
+    // }
+  }
+
+  getrefIdparam = () => {
+    let url = window.location.search;
+    const params = queryString.parse(url);
+    const { referralId } = params;
+    if (referralId) {
+      this.setState({ referralId: referralId });
+      console.log(referralId + "hello");
     }
-
-    getrefIdparam = () => {
-        let url = window.location.search;
-        const params = queryString.parse(url);
-        const {referralId} = params
-        if (referralId) {
-            this.setState({referralId: referralId})
-            console.log(referralId )
-        }
-
-    }
+  };
 
     render() {
         return(
@@ -296,4 +297,4 @@ class GlobalContenxtProvider extends React.Component {
     }
 }
 
-export {GlobalContext, GlobalContenxtProvider}
+export { GlobalContext, GlobalContenxtProvider };

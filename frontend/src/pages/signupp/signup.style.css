@@ -49,3 +49,7 @@ button {
 .forgot {
   text-align: center;
 }
+.error {
+  font-size: 2vw;
+  color: red;
+}

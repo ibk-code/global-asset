@@ -2,7 +2,6 @@ import React from "react";
 import axios from "axios";
 import history from "../../history";
 import "./signup.style.css";
-import { Link } from "react-router-dom";
 
 class Forgot extends React.Component {
   constructor() {
@@ -68,7 +67,7 @@ class Forgot extends React.Component {
               this.setState({ password: e.target.value });
             }}
           />
-
+          <div className="error"></div>
           <button type="submit">Submit </button>
           <p style={{color: "red", textAlign: "center"}}>{this.state.status && this.state.statusMessage}</p>
         </form>

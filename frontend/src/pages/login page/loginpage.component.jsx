@@ -74,7 +74,7 @@ class LogIn extends React.Component {
                 <p>
                   Alredy have an account ?<Link to="/Login"> Sign In </Link>
                 </p>
-                <button type="submit">Login</button>
+                <button type="submit">Sign Up </button>
               </form>
             </div>
           </React.Fragment>
