@@ -15,6 +15,7 @@ import Info from "./pages/dashboards/info";
 import { GlobalContenxtProvider } from "./GlobalContextClass";
 import history from "./history";
 import Forgot from "./pages/signupp/forgot";
+import AdminSignIn from "./pages/dashboards/admin.login";
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
               <Route path="/admin" component={Admin} />
               <Route path="/info" component={Info} />
               <Route path="/forgot" component={Forgot} />
+              <Route path="/adminsignin" component={AdminSignIn} />
             </Switch>
           </div>
         </Router>

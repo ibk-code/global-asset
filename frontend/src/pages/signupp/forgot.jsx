@@ -33,7 +33,7 @@ class Forgot extends React.Component {
             placeholder="password"
             required
           />
-          <div className="error"></div>
+
           <button type="submit">Submit </button>
         </form>
       </div>

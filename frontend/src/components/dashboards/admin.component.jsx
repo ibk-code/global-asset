@@ -25,4 +25,3 @@ class AdminTable extends React.Component {
   }
 }
 export default AdminTable;
- 
