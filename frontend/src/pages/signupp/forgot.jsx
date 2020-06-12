@@ -1,7 +1,6 @@
 import React from "react";
 
 import "./signup.style.css";
-import { Link } from "react-router-dom";
 
 class Forgot extends React.Component {
   constructor() {
@@ -34,7 +33,7 @@ class Forgot extends React.Component {
             placeholder="password"
             required
           />
-
+          <div className="error"></div>
           <button type="submit">Submit </button>
         </form>
       </div>

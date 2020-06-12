@@ -80,6 +80,7 @@ class LogIn extends React.Component {
                 <p>
                   Dont have an account ?<Link to="/Signup"> Sign Up </Link>
                 </p>
+                <div className="error"></div>
                 <button type="submit">Sign Up </button>
               </form>
             </div>

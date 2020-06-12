@@ -1,0 +1,72 @@
+td {
+  padding: 20px 20px;
+  font-size: 1.3vw;
+}
+table {
+  width: 100% !important;
+}
+
+thead,
+tfoot {
+  color: black;
+  font-size: 2vw;
+  margin-bottom: 3%;
+  font-weight: bold;
+}
+
+tbody {
+  text-align: center;
+}
+
+.add-btn {
+  padding: 2% 2%;
+  border-radius: 5px;
+  color: white;
+  background: blue;
+  font-size: 1.5vw;
+  cursor: pointer;
+  margin-left: 3%;
+  margin-right: 3%;
+  text-align: center;
+}
+.inner {
+  width: 40px;
+  height: 20px;
+}
+
+@media screen and (max-width: 500px) {
+  td {
+    padding: 20px 20px;
+    font-size: 1.3vw;
+  }
+  table {
+    width: 100% !important;
+  }
+
+  thead,
+  tfoot {
+    color: black;
+    font-size: 2vw;
+    margin-bottom: 3%;
+    font-weight: bold;
+  }
+
+  tbody {
+    text-align: center;
+  }
+
+  .add-btn {
+    padding: 5px 5px;
+    border-radius: 5px;
+    color: white;
+    background: blue;
+    font-size: 1.5vw;
+    cursor: pointer;
+    margin-right: 3%;
+    text-align: center;
+  }
+  .inner {
+    width: 30px;
+    height: 10px;
+  }
+}
