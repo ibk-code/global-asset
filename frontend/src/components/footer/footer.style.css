@@ -24,6 +24,7 @@
 }
 .foot {
   background: #eaa93d;
+  margin-top: 2rem !important;
 }
 .icons li {
   list-style: none;

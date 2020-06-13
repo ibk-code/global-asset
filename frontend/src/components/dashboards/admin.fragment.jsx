@@ -1,19 +1,19 @@
 import React from "react";
 import "./admin.style.css";
 
-function AdminUser() {
+function AdminUser(props) {
   return (
     <React.Fragment>
-      <tr>
-        <td>123456987</td>
-        <td>john</td>
-        <td>John@yahoo.com</td>
+      <tr data-key={props.ekey}>
+        <td>{props.btcId}</td>
+        <td>{props.name}</td>
+        <td>{props.email}</td>
         <td className="special">
           {" "}
-          <input type="btc" className="inner" plceholder="input BTC" />{" "}
+          <input type="text" className="inner" plceholder="input BTC" onChange={props.chang}/>{" "}
         </td>
         <td>
-          <div className="add-btn"> ADD</div>
+          <div className="add-btn" onClick={props.addBtc}> ADD</div>
         </td>
       </tr>
     </React.Fragment>

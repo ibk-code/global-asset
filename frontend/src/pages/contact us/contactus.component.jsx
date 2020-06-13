@@ -24,7 +24,7 @@ class ContactUs extends React.Component {
   submitMessage = (e) => {
     e.preventDefault();
     if (this.state.name && this.state.phone && this.state.email && this.state.message !== " ") {
-      const url = `http://localhost:5000/api/user/contact`;
+      const url = `https://global-asset.herokuapp.com/api/user/contact`;
       axios({
         method: "post",
         url: url,

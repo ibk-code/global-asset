@@ -23,7 +23,7 @@ function Refer() {
                   name="text"
                   type="text"
                   id="refer-text"
-                  value={`http://localhost:3000/Login?referralId=${context.state.userId}`}
+                  value={`http://localhost:3000/Signup?referralId=${context.state.userId}`}
                 />
                 <button className="copy" onClick={copy}>
                   {" "}

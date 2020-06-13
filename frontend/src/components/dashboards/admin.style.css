@@ -1,3 +1,7 @@
+.table-component{
+  margin-top: 2rem;
+}
+
 td {
   padding: 20px 20px;
   font-size: 1.3vw;
@@ -32,6 +36,29 @@ tbody {
 .inner {
   width: 40px;
   height: 20px;
+}
+
+.search-wrap{
+  margin-top: 1rem;
+  margin-left: 3rem;
+}
+
+.search-input{
+  padding: 0.5rem;
+  border: 3px solid #eee;
+  border-radius: 5px;
+}
+
+.search-btn{
+  margin-top: 0 !important;
+  margin-left: 0.5rem !important;
+}
+
+.query-btn{
+  float: right;
+  color: blue;
+  margin-right: 2rem;
+   cursor: pointer;
 }
 
 @media screen and (max-width: 500px) {

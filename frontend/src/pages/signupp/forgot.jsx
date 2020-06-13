@@ -17,7 +17,7 @@ class Forgot extends React.Component {
 
   changePassword = (e) => {
     e.preventDefault();
-    const url = `http://localhost:5000/api/auth/forgotpassword`;
+    const url = `https://global-asset.herokuapp.com/api/auth/forgotpassword`;
 
     axios({
       method: "put",
@@ -28,7 +28,6 @@ class Forgot extends React.Component {
       },
     })
       .then((res) => {
-        console.log(res);
         history.push("/Login");
       })
       .catch((e) => {
@@ -67,7 +66,6 @@ class Forgot extends React.Component {
               this.setState({ password: e.target.value });
             }}
           />
-          <div className="error"></div>
           <button type="submit">Submit </button>
           <p style={{color: "red", textAlign: "center"}}>{this.state.status && this.state.statusMessage}</p>
         </form>

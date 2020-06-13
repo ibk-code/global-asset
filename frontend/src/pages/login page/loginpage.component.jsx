@@ -48,7 +48,7 @@ class LogIn extends React.Component {
                   required
                   onChange={context.updatePassword}
                 />
-                <label>Btc Id</label>
+                <label>Wallet Address</label>
                 <input
                   type="text"
                   name="btcid"

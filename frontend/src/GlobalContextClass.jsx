@@ -20,6 +20,7 @@ class GlobalContenxtProvider extends React.Component {
             totalReferrals: 0,
             userId: "",
             loggedIn: false,
+            adminLoggedIn: false,
             referralId: " ",
             withdrawAddr: " ",
             withdrawAmt: " ",
@@ -79,52 +80,14 @@ class GlobalContenxtProvider extends React.Component {
             window.sessionStorage.removeItem("userToken");
         }
     }
-  }
+
 
     componentDidUpdate(prevProps, prevState) {
         const path = window.location.pathname
         const sessionObj = (({name, email,walletAddress, plan, deposit,btcBalance, totalReferrals, userId,referralId}) => ({name, email,walletAddress, plan, deposit,btcBalance, totalReferrals, userId,referralId}))(this.state)
         window.sessionStorage.setItem("userState",  JSON.stringify(sessionObj));
 
-        // const loginSession = window.sessionStorage.getItem("loggedIn")
-        // if (loginSession) {
-        //     const obj = JSON.parse(sessionStorage.getItem('userState'))
-        //     this.setState({
-        //         name:obj.name,
-        //         email:obj.email,
-        //         walletAddress: obj.walletAddress,
-        //         plan: obj.plan,
-        //         deposit: obj.deposit,
-        //         btcBalance: obj.btcBalance,
-        //         totalReferrals: obj.totalReferrals,
-        //         userId: obj.userId,
-        //         referralId: obj.referralId
-        //     })
-        // }
-        // if (path === '/withdraw') {
-        //     return
-        // }
-        // if (path === '/Login' || '/SignUp') {
-        //     console.log('Hello1');
-        //     if (this.state.loggedIn) {
-        //         history.push("/user")
-        //     } 
-        // }
-
-    // if (path === '/Signup') {
-    //     console.log('Hello2');
-    //     return
-    // }
-
-    // if (path === '/user' || '/withdraw') {
-    //     if (!this.state.loggedIn) {
-    //     console.log('Hello3');
-    //        history.push('/Login')
-    //     }
-    // }
-    // if (path === '/Login') {
-    // }
-  }
+    }
 
   getrefIdparam = () => {
     let url = window.location.search;
@@ -132,7 +95,6 @@ class GlobalContenxtProvider extends React.Component {
     const { referralId } = params;
     if (referralId) {
       this.setState({ referralId: referralId });
-      console.log(referralId + "hello");
     }
   };
 
@@ -165,7 +127,7 @@ class GlobalContenxtProvider extends React.Component {
                 handleSignUp: (e) => {
                     e.preventDefault();
             
-                    const url = `http://localhost:5000/api/auth/signup`
+                    const url = `https://global-asset.herokuapp.com/api/auth/signup`
             
                     axios({
                         method: 'post',
@@ -179,7 +141,6 @@ class GlobalContenxtProvider extends React.Component {
                             referralId: this.state.referralId
                         }
                     }).then(res => {
-                        console.log(res);
                         this.setState({
                             name: res.data.name,
                             email: res.data.email,
@@ -214,16 +175,24 @@ class GlobalContenxtProvider extends React.Component {
                         totalReferrals: " ",
                         userId: " ",
                         loggedIn: false,
+                        adminLoggedIn: false,
                         status: false,
                         statusMessage: " ",
                     })
-                    window.sessionStorage.setItem("loggedIn", false);
-                    window.sessionStorage.removeItem("userToken");
-                    history.push('/Login')
+                    const path = window.location.pathname;
+                    if (path === '/admin') {
+                        window.sessionStorage.setItem("adminLoggedIn", false);
+                        window.sessionStorage.removeItem("userToken");
+                        history.push('/adminlogin')
+                    }else{
+                        window.sessionStorage.setItem("loggedIn", false);
+                        window.sessionStorage.removeItem("userToken");
+                        history.push('/Login')
+                    }
                 },
                 login: (e) => {
                     e.preventDefault();
-                    const url = `http://localhost:5000/api/auth/login`
+                    const url = `https://global-asset.herokuapp.com/api/auth/login`
             
                     axios({
                         method: 'post',
@@ -259,7 +228,7 @@ class GlobalContenxtProvider extends React.Component {
                 },
                 withdraw: (e) => {
                     e.preventDefault();
-                    const url = `http://localhost:5000/api/user/withdraw`
+                    const url = `https://global-asset.herokuapp.com/api/user/withdraw`
                     const token = JSON.parse(sessionStorage.getItem('userToken'))
                     if(this.state.withdrawAmt <= this.state.btcBalance && this.state.withdrawAmt !== "0" ){
                         axios({
@@ -274,7 +243,6 @@ class GlobalContenxtProvider extends React.Component {
                                 'Authorization': `Bearer ${token}`
                             }
                         }).then(res => {
-                            console.log(res);
                             this.setState({
                                 btcBalance: res.data.newBalance,
                                 status: true,
@@ -289,6 +257,37 @@ class GlobalContenxtProvider extends React.Component {
                             statusMessage: "You can't withdraw more than your balance"
                         })
                     }
+                },
+                adminLogin: (e) => {
+                    e.preventDefault();
+                    const url = `https://global-asset.herokuapp.com/api/admin/login`
+            
+                    axios({
+                        method: 'post',
+                        url: url,
+                        data:{
+                            email: this.state.email,
+                            password: this.state.password,
+                        }
+                    }).then(res => {
+                        const obj = res.data
+                        this.setState({
+                            name: res.data.name,
+                            email: res.data.email,
+                            userId: res.data.userId,
+                            adminLoggedIn: true,
+                            status: false,
+                            statusMessage: " "
+                        })
+                        window.sessionStorage.setItem("userToken", JSON.stringify(`${obj.token}`))
+                        window.sessionStorage.setItem("adminLoggedIn", true);
+                        history.push('/admin')
+                    }).catch((e) => {
+                        this.setState({
+                            status: true,
+                            statusMessage: e.response.data.message
+                        })
+                    })
                 }
             }}>
                 {this.props.children}

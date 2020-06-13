@@ -22,19 +22,25 @@ function Dash() {
                   </div>
                 </div>
                 <div className="para">
-                  <div className="balance">
-                    <h2>Available Balance</h2>
-                    <p>{context.state.btcBalance} BTC</p>
-                  </div>
-
-                  <div className="total-deposit">
-                    <h2>Total Deposit </h2>
-                    <p>{context.state.deposit}</p>
-                  </div>
-
-                  <div className="referals">
-                    <h2>Total Referals</h2>
-                    <p>{context.state.totalReferrals}</p>
+                  <div className="row">
+                    <div className="col-md-4">
+                        <div className="balance">
+                          <h2>Available Balance</h2>
+                          <p>{context.state.btcBalance} BTC</p>
+                        </div>
+                    </div>
+                    <div className="col-md-4">
+                      <div className="total-deposit">
+                        <h2>Total Deposit </h2>
+                        <p>{context.state.deposit}</p>
+                      </div>
+                    </div>
+                    <div className="col-md-4">
+                      <div className="referals">
+                        <h2>Total Referals</h2>
+                        <p>{context.state.totalReferrals}</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>

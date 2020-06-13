@@ -5,6 +5,7 @@ import AboutPage from "./pages/abuout us/aboutpage.component";
 import ContactUs from "./pages/contact us/contactus.component";
 import LogIn from "./pages/login page/loginpage.component";
 import Signup from "./pages/signupp/signup.component";
+import AdminLogin from "./pages/signupp/adminlogin.component";
 import Admin from "../src/pages/dashboards/admin.component";
 import User from "../src/pages/dashboards/user.component";
 import Dash from "../src/components/dash";
@@ -27,6 +28,7 @@ function App() {
               <Route path="/about" component={AboutPage} />
               <Route path="/contact" component={ContactUs} />
               <Route path="/Login" component={Signup} />
+              <Route path="/adminlogin" component={AdminLogin} />
               <Route path="/Signup" component={LogIn} />
               <Route path="/admin" component={Admin} />
               <Route path="/user" component={User} />

@@ -15,8 +15,8 @@ class Signup extends React.Component {
         {(context) => (
           <React.Fragment>
             <div className="input-fields">
-              <form id="login" onSubmit={context.login}>
-                <h2>Sign In </h2>
+              <form id="login" onSubmit={context.adminLogin}>
+                <h2>Sign In As Admin</h2>
 
                 <label>Email </label>
                 <input
@@ -37,12 +37,6 @@ class Signup extends React.Component {
                   onChange={context.updatePassword}
                 />
                 <p style={{color: "red", textAlign: "center"}}>{context.state.status && context.state.statusMessage}</p>
-                <p>
-                  Don't Have an Account ?<Link to="/Signup"> Sign Up </Link>
-                </p>
-                <p className="forgot">
-                  <Link to="/forgot"> Forgot Password </Link>
-                </p>
                 <button type="submit">Sign In </button>
               </form>
             </div>
