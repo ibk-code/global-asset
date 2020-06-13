@@ -4,6 +4,7 @@ td {
 }
 table {
   width: 100% !important;
+  margin-top: 10%;
 }
 
 thead,
@@ -41,6 +42,7 @@ tbody {
   }
   table {
     width: 100% !important;
+    margin-top: 5%;
   }
 
   thead,

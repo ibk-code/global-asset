@@ -7,6 +7,10 @@ class AdminTable extends React.Component {
   render() {
     return (
       <div className="table-component">
+        <div className="search-component">
+          <input type="text" className="inner2" plceholder="Search" />{" "}
+          <div className="add-btn"> Search</div>
+        </div>
         <table>
           <thead>
             <tr>
