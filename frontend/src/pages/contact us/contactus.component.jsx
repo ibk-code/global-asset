@@ -1,5 +1,6 @@
 import React from "react";
 import "./contactus.style.css";
+import axios from "axios";
 
 import Footer from "../../components/footer/footer.component";
 
@@ -10,18 +11,55 @@ class ContactUs extends React.Component {
     super();
     {
       this.state = {
-        Contact: {
-          name: "",
-          phone: "",
-          email: "",
-          message: "",
-        },
+        name: "",
+        phone: "",
+        email: "",
+        message: "",
+        status: false,
+        statusMessage: ""
       };
     }
   }
-  handleInput = (e) => {};
 
-  addItem = (e) => {};
+  submitMessage = (e) => {
+    e.preventDefault();
+    if (this.state.name && this.state.phone && this.state.email && this.state.message !== " ") {
+      const url = `http://localhost:5000/api/user/contact`;
+      axios({
+        method: "post",
+        url: url,
+        data: {
+          name: this.state.name,
+          phone: this.state.phone,
+          email: this.state.email,
+          message: this.state.message,
+        },
+      })
+        .then((res) => {
+          console.log(res);
+          this.setState({
+            name: " ",
+            phone: " ",
+            email: " ",
+            message: " ",
+            status: true,
+            statusMessage: "Your information was successfully submited. Thank you for contacting us."
+          })
+        })
+        .catch(() => {
+          this.setState({
+            status: true,
+            statusMessage: "Your information was not submited, try again"
+          })
+        });
+    }else{
+      this.setState({
+        status: true,
+        statusMessage: "Fill the whole field"
+      })
+    }
+
+  };
 
   render() {
     return (
@@ -30,41 +68,50 @@ class ContactUs extends React.Component {
         <div className="wrapper">
           <div className="contact-form">
             <div className="input-fields">
-              <form id="contact" onSubmit={this.addItem}>
+              <form id="contact" onSubmit={this.submitMessage}>
                 <input
                   type="text"
                   name="name"
                   className="input"
                   placeholder="Name"
                   required
-                  value={this.state.Contact.name}
-                  onChange={this.handleInput}
+                  value={this.state.name}
+                  onChange={(e) => {
+                    this.setState({ name: e.target.value, status: false });
+                  }}
                 />
                 <input
                   type="text"
                   name="Phone"
                   className="input"
                   placeholder="Phone No."
-                  value={this.state.Contact.phone}
-                  onChange={this.handleInput}
+                  value={this.state.phone}
+                  onChange={(e) => {
+                    this.setState({ phone: e.target.value });
+                  }}
                 />
                 <input
                   type="email"
                   name="email"
                   className="input"
                   placeholder="Email"
-                  reduired
-                  value={this.state.Contact.email}
-                  onChange={this.handleInput}
+                  required
+                  value={this.state.email}
+                  onChange={(e) => {
+                    this.setState({ email: e.target.value });
+                  }}
                 />
                 <textarea
                   className="msg"
                   placeholder="Message"
-                  value={this.state.Contact.message}
-                  onChange={this.handleInput}
+                  value={this.state.message}
+                  onChange={(e) => {
+                    this.setState({ message: e.target.value });
+                  }}
                 />
                 <button type="submit">SEND</button>
               </form>
+                <p>{this.state.status && this.state.statusMessage}</p>
             </div>
           </div>
         </div>

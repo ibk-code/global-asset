@@ -32,6 +32,7 @@ function With() {
               </div>
               <button className="with3" type="submit">Withdraw</button>
             </form>
+            <p style={{textAlign: "center"}}>{context.state.status && context.state.statusMessage}</p>
           </div>
         </React.Fragment>
       )}
