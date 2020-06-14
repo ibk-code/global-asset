@@ -84,6 +84,11 @@
 }
 
 @media screen and (max-width: 500px) {
+  .logo{
+    margin-top: -16px;
+    margin-left: 1%;
+  }
+
   .logo a {
     font-size: 12px;
   }
@@ -98,7 +103,7 @@
     width: 30%;
   }
   .navigation {
-    padding: 0 5%;
+    padding: 0 0%;
   }
   .user li a {
     text-decoration: none;
@@ -108,17 +113,19 @@
   }
   .user {
     width: 32%;
-    padding: 10px 15px;
+    padding: 5px 15px;
+    margin-top: -10px !important;
     background-color: #eaa93d;
     border-radius: 5px;
     opacity: 0.8;
+    margin-right: -6%;
   }
   .hero {
-    background-image: url(/images/bgg.png);
+    background-image: url(/images/bgg.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     width: 100%;
-    height: 80vh;
+    height: 60vh;
   }
 }

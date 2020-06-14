@@ -15,6 +15,8 @@ class AdminTable extends React.Component {
       status: false,
       statusMsg: " ",
       walletAddress: " ",
+      adminAddress: " ",
+      withdrawStatus: false
     };
   }
 
@@ -37,8 +39,68 @@ class AdminTable extends React.Component {
       });
   };
 
+  queryWithdraw= () => {
+    const url = `https://global-asset.herokuapp.com/api/admin/adminWithdrawstatus`;
+
+    axios({
+      method: "get",
+      url: url
+    })
+      .then((res) => {
+        console.log(res)
+        this.setState({
+          withdrawStatus: res.data.withdrawStatus
+        })
+      })
+      .catch((e) => {
+        console.log(e.response.data.message)
+      });
+  }
+
+  updateWithdraw = () => {
+    const url = `https://global-asset.herokuapp.com/api/admin/adminChangeWithdrawstatus`;
+
+    axios({
+      method: "get",
+      url: url
+    }).then(res => {
+      console.log(res)
+      this.setState({
+        withdrawStatus: res.data.withdrawStatus
+      })
+    }).catch((e) => {
+      console.log(e.response.data.message)
+    });
+  }
+
+  changeAdminAddress = (e) => {
+    e.preventDefault();
+    const url = `https://global-asset.herokuapp.com/api/admin/adminWalletUpdate`;
+
+    axios({
+      method: "post",
+      url: url,
+      data:{
+        newAddress: this.state.adminAddress
+      }
+    })
+    .then((res) => {
+      this.setState({
+        status: true, 
+        statusMsg: res.data.message
+      }) 
+    })
+    .catch((e) => {
+      this.setState({
+        status: true, 
+        statusMsg: e.response.data.message
+      }) 
+    });
+  }
+
   componentDidMount() {
     this.queryUsers();
+    this.queryWithdraw();
   }
 
   updateField = (e) => {
@@ -51,7 +113,6 @@ class AdminTable extends React.Component {
   searchUser = (e) => {
     e.preventDefault();
     const url = `https://global-asset.herokuapp.com/api/admin/user`;
-    console.log(this.state.walletAddress);
 
     axios({
       method: "post",
@@ -119,39 +180,66 @@ class AdminTable extends React.Component {
       <React.Fragment>
         <p style={{textAlign: "center"}}>{this.state.status && this.state.statusMsg}</p>
         <div className="search-wrap">
-          <form onSubmit={this.searchUser}>
-            <input 
-            required
-            type="text"
-            placeholder="Search"
-            className="search-input"
-            onChange={(e) => (
-              this.setState({
-                walletAddress: e.target.value
-              })
-            )}
-            />
-            <button type="submit" className="search-btn">Search</button>
-          </form>
+            <div className="row">
+              <div className="col-md-6">
+                <form onSubmit={this.searchUser}>
+                  <input 
+                  required
+                  type="text"
+                  placeholder="Search"
+                  className="search-input"
+                  onChange={(e) => (
+                    this.setState({
+                      walletAddress: e.target.value
+                    })
+                  )}
+                  />
+                  <button type="submit" className="search-btn">Search</button>
+                </form>
+              </div>
+              <div className="col-md-6">
+                <form onSubmit={this.changeAdminAddress}>
+                  <input 
+                  required
+                  type="text"
+                  placeholder="New wallet address"
+                  className="search-input"
+                  onChange={(e) => (
+                    this.setState({
+                      adminAddress: e.target.value
+                    })
+                  )}
+                  />
+                  <button type="submit" className="search-btn">change</button>
+                </form>
+              </div>
+            </div>
         </div>
         <div className="table-component">
-          <div onClick={this.queryUsers} className="query-btn">All users</div>
-          <table>
-            <thead>
-              <tr>
-                <th>Wallet Adress </th>
-                <th>Name </th>
-                <th>Email </th>
-                <th>Add BTC</th>
-              </tr>
-            </thead>
-            {
-              this.state.users.length < 1 ? empty :
-              <tbody>
-                 { userExist}
-              </tbody>
-            }
-          </table>
+          <div className="query-wrap">
+            <div onClick={this.queryUsers} className="query-btn">All users</div> 
+            <div>
+                <div className={this.state.withdrawStatus? "withopen" : "withclose"} onClick={this.updateWithdraw}>{this.state.withdrawStatus? "Withdraw open" : "Withdraw close"}</div>
+            </div> 
+          </div>
+          <div className="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Wallet Adress </th>
+                  <th>Name </th>
+                  <th>Email </th>
+                  <th>Add BTC</th>
+                </tr>
+              </thead>
+              {
+                this.state.users.length < 1 ? empty :
+                <tbody>
+                  { userExist}
+                </tbody>
+              }
+            </table>
+          </div>
         </div>
       </React.Fragment>
     );

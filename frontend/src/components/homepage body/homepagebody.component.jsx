@@ -8,19 +8,19 @@ function HomepageBody() {
     <div className="homepage-body">
       <div className="section-one">
         <div className="mini-section">
-          <img src="/images/undraw_wallet_aym5.svg" alt=""></img>
+          <img src="./images/undraw_wallet_aym5.svg" alt=""></img>
           <h3>INSTANT WITHDRAWAL</h3>
         </div>
         <div className="mini-section">
-          <img src="/images/undraw_digital_currency_qpak.svg" alt=""></img>
+          <img src="./images/undraw_digital_currency_qpak.svg" alt=""></img>
           <h3> NO FEES </h3>
         </div>
         <div className="mini-section">
-          <img src="/images/undraw_savings_dwkw.svg" alt=""></img>
+          <img src="./images/automated.svg" alt=""></img>
           <h3>AUTOMATED DEPOSITS</h3>
         </div>
         <div className="mini-section">
-          <img src="/images/undraw_stand_out_1oag.svg" alt=""></img>
+          <img src="./images/undraw_stand_out_1oag.svg" alt=""></img>
           <h3>EXPERT TRADERS</h3>
         </div>
       </div>

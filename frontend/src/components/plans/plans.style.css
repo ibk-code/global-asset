@@ -49,4 +49,12 @@
     margin-left: 5%;
     margin-right: 5%;
   }
+
+  .links{
+    margin-top: -16%;
+  }
+
+  .section-four p{
+    line-height: 0.5;
+  }
 }

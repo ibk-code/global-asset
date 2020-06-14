@@ -51,9 +51,9 @@ class LogIn extends React.Component {
                 <label>Wallet Address</label>
                 <input
                   type="text"
-                  name="btcid"
+                  name="wallet address"
                   className="input"
-                  placeholder="btc id"
+                  placeholder="Wallet Address"
                   required
                   onChange={context.updateWalletAddress}
                 />

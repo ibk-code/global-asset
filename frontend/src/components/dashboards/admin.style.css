@@ -2,6 +2,12 @@
   margin-top: 2rem;
 }
 
+.table-wrap{
+  width: 100%;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
 td {
   padding: 20px 20px;
   font-size: 1.3vw;
@@ -15,6 +21,7 @@ tfoot {
   color: black;
   font-size: 2vw;
   margin-bottom: 3%;
+  text-align: center;
   font-weight: bold;
 }
 
@@ -54,11 +61,36 @@ tbody {
   margin-left: 0.5rem !important;
 }
 
+.query-wrap{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
 .query-btn{
-  float: right;
   color: blue;
   margin-right: 2rem;
    cursor: pointer;
+}
+
+.withclose{
+  background: #ddd;
+  padding: 5px 10px;
+  color: #ffffff;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: -10px;
+}
+
+.withopen{
+  background: #eaa93d;
+  padding: 5px 10px;
+  color: #ffffff;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: -10px;
 }
 
 @media screen and (max-width: 500px) {
