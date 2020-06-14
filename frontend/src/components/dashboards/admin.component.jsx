@@ -47,7 +47,6 @@ class AdminTable extends React.Component {
       url: url
     })
       .then((res) => {
-        console.log(res)
         this.setState({
           withdrawStatus: res.data.withdrawStatus
         })
@@ -64,7 +63,6 @@ class AdminTable extends React.Component {
       method: "get",
       url: url
     }).then(res => {
-      console.log(res)
       this.setState({
         withdrawStatus: res.data.withdrawStatus
       })

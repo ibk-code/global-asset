@@ -18,7 +18,6 @@ class Deposite extends React.Component {
       url: url
     })
       .then((res) => {
-        console.log(res)
         this.setState({
           walletAddress: res.data.adminWallet
         })

@@ -19,7 +19,6 @@ class With extends React.Component {
       url: url
     })
       .then((res) => {
-        console.log(res)
         this.setState({
           withdraw: res.data.withdrawStatus
         })
