@@ -29,9 +29,8 @@
   margin-bottom: 3%;
 }
 .back-pad {
-  border: solid 0.5px #000000;
   border-radius: 5px;
-  box-shadow: 5px 5px lightgrey;
+  box-shadow: 5px 5px 5px lightgrey;
   padding: 15px 15px;
 }
 @media screen and (max-width: 500px) {

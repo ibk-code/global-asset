@@ -24,7 +24,7 @@ function Dash() {
                 <div className="para">
                   <div className="balance">
                     <h2>Available Balance</h2>
-                    <p>{context.state.btcBalance} BTC</p>
+                    <p>{context.state.btcBalance} USD</p>
                   </div>
 
                   <div className="total-deposit">
