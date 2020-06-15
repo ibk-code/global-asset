@@ -49,7 +49,7 @@ class Forgot extends React.Component {
             type="text"
             name="email"
             className="input"
-            placeholder="email"
+            placeholder="Wallet Address"
             required
             onChange={(e) => {
               this.setState({ address: e.target.value });

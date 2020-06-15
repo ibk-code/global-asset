@@ -23,6 +23,7 @@ function Refer() {
                   name="text"
                   type="text"
                   id="refer-text"
+                  readOnly
                   value={`theglobalasset.com/Signup?referralId=${context.state.userId}`}
                 />
                 <button className="copy" onClick={copy}>
