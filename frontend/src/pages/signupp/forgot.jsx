@@ -7,7 +7,7 @@ class Forgot extends React.Component {
   constructor() {
     super();
     this.state = {
-      email: " ",
+      address: " ",
       password: " ",
       success: false,
       status: false,
@@ -17,13 +17,13 @@ class Forgot extends React.Component {
 
   changePassword = (e) => {
     e.preventDefault();
-    const url = `https://global-asset.herokuapp.com/api/auth/forgotpassword`;
+    const url = `http://localhost:5000/api/auth/forgotpassword`;
 
     axios({
       method: "put",
       url: url,
       data: {
-        email: this.state.email,
+        address: this.state.address,
         newPassword: this.state.password,
       },
     })
@@ -44,15 +44,15 @@ class Forgot extends React.Component {
         <form id="login" onSubmit={this.changePassword}>
           <h2>Forgot Password </h2>
 
-          <label>Registerd Email </label>
+          <label>Registered Wallet Address</label>
           <input
-            type="email"
+            type="text"
             name="email"
             className="input"
             placeholder="email"
             required
             onChange={(e) => {
-              this.setState({ email: e.target.value });
+              this.setState({ address: e.target.value });
             }}
           />
           <label>New Password </label>
